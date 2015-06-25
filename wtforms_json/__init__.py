@@ -53,6 +53,8 @@ def flatten_json(
 
     items = []
     for key, value in json.items():
+        if value is 0:
+            value = str(value)
         try:
             unbound_field = getattr(form, key)
         except AttributeError:
